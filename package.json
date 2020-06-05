@@ -60,7 +60,7 @@
     "jsnext:main": "./es/index.js",
     "dependencies": {
         "bigi": "1.4.2",
-        "bitsharesjs-ws": "^3.1.1",
+        "bitsharesjs-ws": "github:mvsdna/dna-bitsharesjs-ws#dna",
         "bs58": "4.0.1",
         "bytebuffer": "5.0.1",
         "create-hash": "1.2.0",

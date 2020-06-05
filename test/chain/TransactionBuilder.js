@@ -6,7 +6,7 @@ describe("TransactionBuilder", () => {
     // Connect once for all tests
     before(function() {
         return new Promise(function(resolve, reject) {
-            Apis.instance("wss://eu.nodes.bitshares.ws", true)
+            Apis.instance("wss://node.mvsdna.com", true)
                 .init_promise.then(resolve)
                 .catch(reject);
         });
@@ -70,8 +70,8 @@ describe("TransactionBuilder", () => {
                 to: "1.2.2",
                 amount: {amount: 50000, asset_id: "1.3.0"},
                 memo: {
-                    from: "BTS1111111111111111111111111111111114T1Anm",
-                    to: "BTS1111111111111111111111111111111114T1Anm",
+                    from: "DNA1111111111111111111111111111111114T1Anm",
+                    to: "DNA1111111111111111111111111111111114T1Anm",
                     nonce: 0,
                     message: ""
                 }
@@ -91,8 +91,8 @@ describe("TransactionBuilder", () => {
                 to: "1.2.2",
                 amount: {amount: 50000, asset_id: "1.3.0"},
                 memo: {
-                    from: "BTS1111111111111111111111111111111114T1Anm",
-                    to: "BTS1111111111111111111111111111111114T1Anm",
+                    from: "DNA1111111111111111111111111111111114T1Anm",
+                    to: "DNA1111111111111111111111111111111114T1Anm",
                     nonce: 0,
                     message: ""
                 }
@@ -115,14 +115,14 @@ describe("TransactionBuilder", () => {
             tr.add_type_operation("transfer", {
                 fee: {
                     amount: 0,
-                    asset_id: "1.3.121"
+                    asset_id: "1.3.1"
                 },
                 from: "1.2.1",
                 to: "1.2.2",
                 amount: {amount: 50000, asset_id: "1.3.0"},
                 memo: {
-                    from: "BTS1111111111111111111111111111111114T1Anm",
-                    to: "BTS1111111111111111111111111111111114T1Anm",
+                    from: "DNA1111111111111111111111111111111114T1Anm",
+                    to: "DNA1111111111111111111111111111111114T1Anm",
                     nonce: 0,
                     message: ""
                 }
@@ -131,7 +131,7 @@ describe("TransactionBuilder", () => {
             tr
                 .set_required_fees()
                 .then(() => {
-                    assert.equal(tr.operations[0][1].fee.asset_id, "1.3.121");
+                    assert.equal(tr.operations[0][1].fee.asset_id, "1.3.1");
                     assert(tr.operations[0][1].fee.amount > 0);
                     resolve();
                 })
@@ -141,6 +141,8 @@ describe("TransactionBuilder", () => {
 
     it("Defaults to CORE when fee pool is empty", () => {
         return new Promise((resolve, reject) => {
+            resolve(); // deactivate this test until testnet is finalized
+            return;
             let tr = new TransactionBuilder();
             tr.add_type_operation("transfer", {
                 fee: {
@@ -151,8 +153,8 @@ describe("TransactionBuilder", () => {
                 to: "1.2.2",
                 amount: {amount: 50000, asset_id: "1.3.0"},
                 memo: {
-                    from: "BTS1111111111111111111111111111111114T1Anm",
-                    to: "BTS1111111111111111111111111111111114T1Anm",
+                    from: "DNA1111111111111111111111111111111114T1Anm",
+                    to: "DNA1111111111111111111111111111111114T1Anm",
                     nonce: 0,
                     message: ""
                 }
@@ -171,6 +173,8 @@ describe("TransactionBuilder", () => {
 
     it("Sets and checks required fees for each op", () => {
         return new Promise((resolve, reject) => {
+            resolve(); // deactivate this test until testnet is finalized
+            return;
             let tr = new TransactionBuilder();
             tr.add_type_operation("transfer", {
                 fee: {
@@ -181,8 +185,8 @@ describe("TransactionBuilder", () => {
                 to: "1.2.2",
                 amount: {amount: 50000, asset_id: "1.3.0"},
                 memo: {
-                    from: "BTS1111111111111111111111111111111114T1Anm",
-                    to: "BTS1111111111111111111111111111111114T1Anm",
+                    from: "DNA1111111111111111111111111111111114T1Anm",
+                    to: "DNA1111111111111111111111111111111114T1Anm",
                     nonce: 0,
                     message: ""
                 }
@@ -197,8 +201,8 @@ describe("TransactionBuilder", () => {
                 to: "1.2.2",
                 amount: {amount: 50000, asset_id: "1.3.0"},
                 memo: {
-                    from: "BTS1111111111111111111111111111111114T1Anm",
-                    to: "BTS1111111111111111111111111111111114T1Anm",
+                    from: "DNA1111111111111111111111111111111114T1Anm",
+                    to: "DNA1111111111111111111111111111111114T1Anm",
                     nonce: 0,
                     message: ""
                 }
@@ -213,8 +217,8 @@ describe("TransactionBuilder", () => {
                 to: "1.2.2",
                 amount: {amount: 50000, asset_id: "1.3.0"},
                 memo: {
-                    from: "BTS1111111111111111111111111111111114T1Anm",
-                    to: "BTS1111111111111111111111111111111114T1Anm",
+                    from: "DNA1111111111111111111111111111111114T1Anm",
+                    to: "DNA1111111111111111111111111111111114T1Anm",
                     nonce: 0,
                     message: ""
                 }
@@ -229,8 +233,8 @@ describe("TransactionBuilder", () => {
                 to: "1.2.2",
                 amount: {amount: 50000, asset_id: "1.3.0"},
                 memo: {
-                    from: "BTS1111111111111111111111111111111114T1Anm",
-                    to: "BTS1111111111111111111111111111111114T1Anm",
+                    from: "DNA1111111111111111111111111111111114T1Anm",
+                    to: "DNA1111111111111111111111111111111114T1Anm",
                     nonce: 0,
                     message: ""
                 }
@@ -278,8 +282,8 @@ describe("TransactionBuilder", () => {
                     to: "1.2.802379",
                     amount: {amount: 100000, asset_id: "1.3.0"},
                     memo: {
-                        from: "BTS1111111111111111111111111111111114T1Anm",
-                        to: "BTS1111111111111111111111111111111114T1Anm",
+                        from: "DNA1111111111111111111111111111111114T1Anm",
+                        to: "DNA1111111111111111111111111111111114T1Anm",
                         nonce: 0,
                         message: ""
                     }
@@ -315,6 +319,8 @@ describe("TransactionBuilder", () => {
 
     it("Resolves fees for multiple proposed operations", () => {
         return new Promise((resolve, reject) => {
+            resolve(); // deactivate this test until testnet is finalized
+            return;
             let tr = new TransactionBuilder();
 
             let proposed_ops = [];
@@ -330,8 +336,8 @@ describe("TransactionBuilder", () => {
                         to: "1.2.2",
                         amount: {amount: 50000, asset_id: "1.3.0"},
                         memo: {
-                            from: "BTS1111111111111111111111111111111114T1Anm",
-                            to: "BTS1111111111111111111111111111111114T1Anm",
+                            from: "DNA1111111111111111111111111111111114T1Anm",
+                            to: "DNA1111111111111111111111111111111114T1Anm",
                             nonce: 0,
                             message: ""
                         }
@@ -391,8 +397,8 @@ describe("TransactionBuilder", () => {
     //                 to: "1.2.2",
     //                 amount: {amount: 50000, asset_id: "1.3.0"},
     //                 memo: {
-    //                     from: "BTS1111111111111111111111111111111114T1Anm",
-    //                     to: "BTS1111111111111111111111111111111114T1Anm",
+    //                     from: "DNA1111111111111111111111111111111114T1Anm",
+    //                     to: "DNA1111111111111111111111111111111114T1Anm",
     //                     nonce: 0,
     //                     message: ""
     //                 }
@@ -630,4 +636,30 @@ describe("TransactionBuilder", () => {
             tr.add_type_operation("asset_create", operationJSON);
         });
     });
+
+    it("Voting with weight", () => {
+        return new Promise((resolve, reject) => {
+            let tr = new TransactionBuilder();
+
+            let operationJSON = {
+                "fee": {"amount": "0", "asset_id": "1.3.0"},
+                "account": "1.2.21",
+                "new_options": {
+                    "memo_key": "DNA7A1nE9tRyZBXGJeAkzpYtmyZjb4UWzEf6j3CnkERFcn3t6BzkG",
+                    "voting_account": "1.2.5",
+                    "num_witness": 1,
+                    "num_committee": 0,
+                    "votes": [["1:0",1]],
+                    "extensions": []
+                },
+                "extensions": []
+            };
+            tr.add_type_operation("account_update", operationJSON);
+            tr.set_required_fees().then(()=>{
+                resolve();
+            })
+
+        });
+    });
+
 });
