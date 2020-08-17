@@ -1,7 +1,7 @@
 {
-    "name": "bitsharesjs",
+    "name": "dnajs",
     "version": "4.0.0-rc1",
-    "description": "Pure JavaScript BitShares library for node.js and browsers.",
+    "description": "Pure JavaScript DNA library for node.js and browsers.",
     "browser": {
         "ws": false,
         "crypto": false
@@ -21,8 +21,8 @@
         "postbuild": "npm run browserify && npm run build-es && npm run webpack",
         "build:watch": "babel lib -d dist --watch",
         "prebrowserify": "mkdirp build",
-        "browserify": "cross-env NODE_ENV=production browserify --full-paths false dist/browser.js --standalone bitshares_js -o build/bitsharesjs.js -d",
-        "postbrowserify": "cross-env NODE_ENV=production minify build/bitsharesjs.js --mangle --outFile build/bitsharesjs.min.js",
+        "browserify": "cross-env NODE_ENV=production browserify --full-paths false dist/browser.js --standalone dna_js -o build/dnajs.js -d",
+        "postbrowserify": "cross-env NODE_ENV=production minify build/dnajs.js --mangle --outFile build/dnajs.min.js",
         "precommit": "pretty-quick --staged && npm run test",
         "prepublish": "npm run build && npm run test",
         "doc": "esdoc -c esdoc.json",
@@ -40,9 +40,9 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/bitshares/bitsharesjs.git"
+        "url": "git+https://github.com/mvsdna/dnajs.git"
     },
-    "author": "BitShares UI Team <ui-dev@bitshares.org>",
+    "author": "Metaverse <info@mvsdna.com>",
     "contributors": [
         "Sigve Kvalsvik <bitsharesblocks@gmail.com> (https://github.com/svk31)",
         "James Calfee <james@jcalfee.info> (https://github.com/jcalfee/)",
@@ -51,7 +51,7 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/bitshares/bitsharesjs/issues"
+        "url": "https://github.com/mvsdna/dnajs/issues"
     },
     "engines": {
         "node": ">= 6.0.0"
@@ -60,7 +60,7 @@
     "jsnext:main": "./es/index.js",
     "dependencies": {
         "bigi": "1.4.2",
-        "bitsharesjs-ws": "^3.1.1",
+        "dna-ws-js": "^3.1.1",
         "bs58": "4.0.1",
         "bytebuffer": "5.0.1",
         "create-hash": "1.2.0",
