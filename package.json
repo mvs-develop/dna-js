@@ -40,7 +40,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/bitshares/bitsharesjs.git"
+        "url": "git+https://github.com/mvs-develop/dna-js.git#dna"
     },
     "author": "BitShares UI Team <ui-dev@bitshares.org>",
     "contributors": [
